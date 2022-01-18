@@ -5,9 +5,13 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "node server.js",
+    "client": "cd client && npm start"
   },
-  "author": "Archan",
+  "author": "Archan&Jaydip",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.1",
@@ -16,7 +20,6 @@
     "express": "^4.17.2",
     "mongoose": "^6.1.6",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.15",
-    "path": "^0.12.7"
+    "nodemon": "^2.0.15"
   }
 }

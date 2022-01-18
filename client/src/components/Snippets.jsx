@@ -14,7 +14,7 @@ class Language {
     `#include<stdio.h>
   
   int main(){
-      printf("Hello World");
+      printf("Welcome to Arjditor!");
       return 0;
   }`
   )
@@ -27,12 +27,12 @@ class Language {
   using namespace std;
   
   int main(){
-      cout << "Hello World";
+      cout << "Welcome to Arjditor!";
       return 0;
   }`
   );
   
-  let python = new Language("Python", "py", "python", `print("Hello World")`);
+  let python = new Language("Python", "py", "python", `print("Welcome to Arjditor!")`);
   
   let java = new Language(
     "Java",
@@ -41,22 +41,22 @@ class Language {
     `public class Main {
         
       public static void main(String[] args) {
-          System.out.println("Hello, World!"); 
+          System.out.println("Welcome to Arjditor!"); 
       }
       
   }`
   );
   
-  let ruby = new Language("Ruby", "rb", "ruby", `puts "Hello World"`);
+  let ruby = new Language("Ruby", "rb", "ruby", `puts "Welcome to Arjditor!"`);
   
-  let swift = new Language("Swift", "swift", "swift", `print("Hello, World!") `);
+  let swift = new Language("Swift", "swift", "swift", `print("Welcome to Arjditor!") `);
   
   let kotlin = new Language(
     "Kotlin",
     "kt",
     "kotlin",
     `fun main(args: Array<String>) {
-      println("Hello, World!")
+      println("Welcome to Arjditor!")
   }`
   );
   

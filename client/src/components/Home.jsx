@@ -137,7 +137,7 @@ const Home = () => {
                     }
                 }
                 const res=await axios.post('/api/uploadcode',{code:code,extension:ext,language:lang},newConfig);
-                setLinkBody(`http://localhost:3000/${res.data}`);
+                setLinkBody(`https://arjditor.herokuapp.com/${res.data}`);
                 handleClickOpen(); 
             // alert("Code uploaded!");
         } catch (error) {

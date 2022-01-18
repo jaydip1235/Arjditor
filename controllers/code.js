@@ -1,0 +1,24 @@
+const Code=require('../models/Code');
+
+exports.uploadCode=async(req,res)=>{
+    try {
+        const {code,extension,language}=req.body;
+        const newCode=new Code({code,extension,language});
+        newCode.save();
+        res.status(201).send(newCode._id);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({error:"Something went wrong!"});
+    }
+}
+
+exports.getCode=async(req,res)=>{
+    try {
+        const {codeId}=req.params;
+        const code=await Code.findOne({_id:codeId});
+        res.status(200).send(code);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({error:"Something went wrong!"});
+    }
+}

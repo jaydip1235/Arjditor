@@ -241,7 +241,7 @@ window.getSelection().removeAllRanges();
                             showLineNumbers: true,
                             tabSize: 2,
                             }}
-                            showPrintMargin={true}
+                            showPrintMargin={false}
                             showGutter={true}
                             highlightActiveLine={true}
                     />,
@@ -274,7 +274,7 @@ window.getSelection().removeAllRanges();
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Click to copy
+            Click on the <strong>Copy</strong> button to copy URL
           </DialogContentText>
         </DialogContent>
         <DialogActions>

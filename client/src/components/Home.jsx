@@ -9,7 +9,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 highlightedLangs.forEach(lang => {
     require(`ace-builds/src-noconflict/mode-${lang}`);
     require(`ace-builds/src-noconflict/snippets/${lang}`);
@@ -19,6 +19,7 @@ highlightedLangs.forEach(lang => {
 const Home = () => {
 
     const {codeId}=useParams();
+    const navigate=useNavigate();
 
     const [code, setCode] = useState(languages[0].sampleCode);
     const [result, setResult] = useState("");
@@ -42,27 +43,39 @@ const Home = () => {
   };
 
     useEffect(() => {
+        if(window.screen.width<=992) alert("Open in a larger device for best experience!");
         if(codeId){
             const config = {
                 headers: {
                     "Content-Type": "application/json"
                 }
             }
-            axios.get(`/api/getcode/${codeId}`, config).then(({ data }) =>{
-                setCode(data.code);
-                setExt(data.extension);
-                setLang(data.lang);
-                let ind;
-                for(let i=0;i<languages.length;i++){
-                    if(languages[i].extension===data.extension){
-                        ind=i;
-                        break;
+            axios.get(`/api/getcode/${codeId}`, config).then(({ data,status }) =>{
+                if(status===200){
+                    setCode(data.code);
+                    setExt(data.extension);
+                    setLang(data.lang);
+                    let ind;
+                    for(let i=0;i<languages.length;i++){
+                        if(languages[i].extension===data.extension){
+                            ind=i;
+                            break;
+                        }
                     }
+                    let tempArr=languages.filter(l=>l.extension!==data.extension);
+                    tempArr.unshift(languages[ind]);
+                    setRecLi(tempArr);
                 }
-                let tempArr=languages.filter(l=>l.extension!==data.extension);
-                tempArr.unshift(languages[ind]);
-                setRecLi(tempArr);
-            }).catch((err) => console.log(err));
+                else{
+                    alert("Invalid URL!");
+                    navigate('/');
+                }
+            }).catch((err) => {
+                console.log(err);
+                alert("Invalid URL!");
+                navigate('/');
+                setRecLi(languages);
+            });
         }
         else setRecLi(languages);
     }, [])
@@ -212,7 +225,7 @@ window.getSelection().removeAllRanges();
                         <button type="button" className="btn btn-primary theme-class px-4" disabled={isDis}  data-bs-toggle="tooltip" data-bs-placement="top" title="Run code" onClick={uploadCode}>
                             <VscRunAll/>
                         </button>
-                        <button type="button" className="btn btn-primary theme-class px-4"  data-bs-toggle="tooltip" data-bs-placement="top" title="Run and generate url" onClick={uploadCodeAndGenerateUrl}>
+                        <button type="button" className="btn btn-primary theme-class px-4"  data-bs-toggle="tooltip" data-bs-placement="top" title="Run and generate URL" onClick={uploadCodeAndGenerateUrl}>
                             <VscDebugRerun/>
                         </button>
                     </div>

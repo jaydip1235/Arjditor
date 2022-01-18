@@ -16,7 +16,10 @@ exports.getCode=async(req,res)=>{
     try {
         const {codeId}=req.params;
         const code=await Code.findOne({_id:codeId});
-        res.status(200).send(code);
+        if(!code){
+            res.status(400).json({error:"Invalid URL!"});
+        }
+        else res.status(200).send(code);
     } catch (error) {
         console.log(error);
         res.status(500).json({error:"Something went wrong!"});

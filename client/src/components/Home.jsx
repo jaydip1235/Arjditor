@@ -244,7 +244,7 @@ window.getSelection().removeAllRanges();
                         onChange={(e) => setCode(e)}
                         name="UNIQUE_ID_OF_DIV"
                         editorProps={{ $blockScrolling: true }}
-                        height='100%'
+                        height='92%'
                         width='100%'
                         fontSize={parseInt(fs)}
                         setOptions={{

@@ -42,6 +42,7 @@ const Home = () => {
     setOpen(false);
   };
 
+  
     useEffect(() => {
         if(window.screen.width<=992) alert("Open in a larger device for best experience!");
         if(codeId){

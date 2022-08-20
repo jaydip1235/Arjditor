@@ -1,66 +1,77 @@
 class Language {
-    constructor(name, extension, code, sampleCode) {
-      this.name = name;
-      this.extension = extension;
-      this.code = code;
-      this.sampleCode = sampleCode;
-    }
+  constructor(name, extension, code, sampleCode) {
+    this.name = name;
+    this.extension = extension;
+    this.code = code;
+    this.sampleCode = sampleCode;
   }
+}
 
-  let c= new Language(
-    "C",
-    "c",
-    "c",
-    `#include<stdio.h>
+let c = new Language(
+  "C",
+  "c",
+  "c",
+  `#include<stdio.h>
   
   int main(){
       printf("Welcome to Arjditor!");
       return 0;
   }`
-  )
-  
-  let cpp = new Language(
-    "C++",
-    "cpp",
-    "cpp",
-    `#include<bits/stdc++.h>
+)
+
+let cpp = new Language(
+  "C++",
+  "cpp",
+  "cpp",
+  `#include<bits/stdc++.h>
   using namespace std;
-  
+
   int main(){
       cout << "Welcome to Arjditor!";
       return 0;
   }`
-  );
-  
-  let python = new Language("Python", "py", "python", `print("Welcome to Arjditor!")`);
-  
-  let java = new Language(
-    "Java",
-    "java",
-    "java",
-    `public class Main {
+);
+
+let python = new Language("Python", "py", "python", `print("Welcome to Arjditor!")`);
+
+let java = new Language(
+  "Java",
+  "java",
+  "java",
+  `public class Main {
         
       public static void main(String[] args) {
           System.out.println("Welcome to Arjditor!"); 
       }
       
   }`
-  );
-  
-  let ruby = new Language("Ruby", "rb", "ruby", `puts "Welcome to Arjditor!"`);
-  
-  let swift = new Language("Swift", "swift", "swift", `print("Welcome to Arjditor!") `);
-  
-  let kotlin = new Language(
-    "Kotlin",
-    "kt",
-    "kotlin",
-    `fun main(args: Array<String>) {
-      println("Welcome to Arjditor!")
+);
+
+let javascript = new Language("JavaScript", "js", "javascript", `console.log("Welcome to Arjditor!");`);
+
+let csharp = new Language("C#", "cs", "csharp", `namespace Welcome
+{
+    class Hello {         
+        static void Main(string[] args)
+        {
+            System.Console.WriteLine("Welcome to Arjditor!");
+        }
+    }
+}`);
+
+let go = new Language(
+  "Go",
+  "go",
+  "go",
+  `package main
+  import "fmt"
+
+  func main() {
+      fmt.Println("Welcome to Arjditor!")
   }`
-  );
-  
-const languages = [ python,c,cpp, java, ruby, kotlin, swift];
+);
+
+const languages = [python, c, cpp, java, javascript, go, csharp];
 const themes = [
   "monokai",
   "github",
@@ -92,4 +103,4 @@ const highlightedLangs = [
   "css"
 ];
 
-export {languages,themes,highlightedLangs};
+export { languages, themes, highlightedLangs };

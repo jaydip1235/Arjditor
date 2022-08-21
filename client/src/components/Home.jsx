@@ -127,7 +127,7 @@ const Home = () => {
 
             var config = {
                 method: 'post',
-                url: 'https://cors-anywhere-jaagrav.herokuapp.com/https://codexweb.netlify.app/.netlify/functions/enforceCode',
+                url: 'https://codex-api.herokuapp.com/',
                 headers: {
                     'Content-Type': 'application/json'
                 },

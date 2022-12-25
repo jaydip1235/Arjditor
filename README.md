@@ -1,5 +1,5 @@
 # **Arjditor**
-## To visit *Arjditor* click [here](https://arjditor.herokuapp.com/)
+## To visit *Arjditor* click [here](https://arjditor.netlify.app/)
 ## Demo video click [here](https://youtu.be/WegpX5JICYA)
 
 
